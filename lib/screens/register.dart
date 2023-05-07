@@ -22,56 +22,6 @@ class _RegisterState extends State<Register> {
   int selectedAge = 1;
   bool _isUpdating = false;
 
-  // _createTable() {
-  //   print("Creating table...");
-  //   Service.createTable().then((result) {
-  //     if ('success' == result) {
-  //       // showSnackBar(context, result);
-  //       // _getEmployees();
-  //     }
-  //   });
-  // }
-
-  // void addData() {
-  //   if (emailController.text.trim().isEmpty ||
-  //       nameController.text.trim().isEmpty ||
-  //       usernameController.text.trim().isEmpty ||
-  //       passwordController.text.trim().isEmpty) {
-  //     print("Empty fields");
-  //     return;
-  //   }
-
-  //   print("Adding User");
-  //   var url = "http://10.0.2.2/tienda/adddata.php";
-
-  //   http.post(url as Uri, body: {
-  //     "email": emailController.text,
-  //     "fullname": nameController.text,
-  //     "username": usernameController.text,
-  //     "password": passwordController.text,
-  //     "age": selectedAge
-  //   });
-  // }
-
-  // _addUser() {
-  //   if (emailController.text.trim().isEmpty ||
-  //       nameController.text.trim().isEmpty ||
-  //       usernameController.text.trim().isEmpty ||
-  //       passwordController.text.trim().isEmpty) {
-  //     print("Empty fields");
-  //     return;
-  //   }
-  //   print("Adding User");
-  //   Service.addUser(emailController.text, nameController.text,
-  //           usernameController.text, passwordController.text, selectedAge!)
-  //       .then((result) {
-  //     if ('success' == result) {
-  //       // _getEmployees();
-  //       print("Success adding user.");
-  //     }
-  //     _clearValues();
-  //   });
-  // }
   _addUser() {
     Service.addUser(emailController.text, nameController.text,
         usernameController.text, passwordController.text, selectedAge);
@@ -80,61 +30,6 @@ class _RegisterState extends State<Register> {
       MaterialPageRoute(builder: (context) => Login()),
     );
   }
-  // _getEmployees() {
-  //   print("Loading Users");
-  //   Service.getUsers().then((users) {
-  //     setState(() {
-  //       _users = users;
-  //     });
-  //     print("Length: ${_users?.length}");
-  //   });
-  // }
-
-  // _deleteEmployee(User user) {
-  //   print("Deleting User");
-  //   Service.deleteUser(user.user_id as String).then((result) {
-  //     if ('success' == result) {
-  //       setState(() {
-  //         _users?.remove(user);
-  //       });
-  //       _getEmployees();
-  //     }
-  //   });
-  // }
-
-  // _updateEmployee(User user) {
-  //   print("Updating password");
-  //   Service.updatePassword(user.user_id as String, passwordController.text)
-  //       .then((result) {
-  //     if ('success' == result) {
-  //       _getEmployees();
-  //       setState(() {
-  //         _isUpdating = false;
-  //       });
-  //       passwordController.text = '';
-  //     }
-  //   });
-  // }
-
-  // _setValues(User user) {
-  //   emailController.text = user.email!;
-  //   nameController.text = user.fullname!;
-  //   usernameController.text = user.username!;
-  //   passwordController.text = user.password!;
-  //   selectedAge = user.age;
-
-  //   setState(() {
-  //     _isUpdating = true;
-  //   });
-  // }
-
-  // _clearValues() {
-  //   emailController.text = '';
-  //   emailController.text = '';
-  //   nameController.text = '';
-  //   usernameController.text = '';
-  //   passwordController.text = '';
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -261,7 +156,7 @@ class _RegisterState extends State<Register> {
                     ),
                     DropdownButton(
                       value: selectedAge,
-                      items: List.generate(12, (index) {
+                      items: List.generate(13, (index) {
                         int age = index + 1;
                         return DropdownMenuItem(
                           value: age,

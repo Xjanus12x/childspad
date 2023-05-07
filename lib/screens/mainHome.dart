@@ -5,11 +5,12 @@ import 'package:childspad/screens/story3/story3.dart';
 import 'package:childspad/screens/story4/story4.dart';
 import 'package:childspad/screens/story5/story5.dart';
 import 'package:childspad/screens/story6/story6.dart';
+import 'package:childspad/screens/story7/story7.dart';
 import 'package:flutter/material.dart';
 
-import 'package:flutter/src/widgets/placeholder.dart';
-
 import '../utilities/colors.dart';
+import 'story8/story8.dart';
+import 'story9/story9.dart';
 
 class MainHome extends StatefulWidget {
   const MainHome({super.key});
@@ -46,8 +47,8 @@ class _MainHomeState extends State<MainHome> {
           height: 20,
         ),
         Visibility(
-          visible: currenUserAge >= 1 &&
-              currenUserAge <= 6, // replace `age` with your actual condition
+          visible: currenUserAge >= 1 && currenUserAge <= 4 ||
+              currenUserAge == 13, // replace `age` with your actual condition
           child: Row(
             children: [
               InkWell(
@@ -100,7 +101,8 @@ class _MainHomeState extends State<MainHome> {
           height: 20,
         ),
         Visibility(
-          visible: currenUserAge >= 7 && currenUserAge <= 12,
+          visible:
+              currenUserAge >= 5 && currenUserAge <= 9 || currenUserAge == 13,
           child: Row(
             children: [
               InkWell(
@@ -151,6 +153,57 @@ class _MainHomeState extends State<MainHome> {
         ),
         SizedBox(
           height: 20,
+        ),
+        Visibility(
+          visible:
+              currenUserAge >= 10 && currenUserAge <= 12 || currenUserAge == 13,
+          child: Row(
+            children: [
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Story7()),
+                  );
+                },
+                child: Image.asset(
+                  'images/story7.png',
+                  width: 150,
+                  height: 150, // set the desired width
+                ),
+              ),
+              SizedBox(
+                width: 20,
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Story8()),
+                  );
+                },
+                child: Image.asset(
+                  'images/story8.png',
+                  width: 150, // set the desired width
+                ),
+              ),
+              SizedBox(
+                width: 20,
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Story9()),
+                  );
+                },
+                child: Image.asset(
+                  'images/story9.png',
+                  width: 150, // set the desired width
+                ),
+              ),
+            ],
+          ),
         ),
       ],
     );

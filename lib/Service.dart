@@ -1,8 +1,13 @@
-import 'dart:convert';
-import 'package:http/http.dart' as http;
-
 class Service {
-  static List<Map<String, dynamic>> users = [];
+  static List<Map<String, dynamic>> users = [
+    {
+      "email": "user@yahoo.com",
+      "fullname": "user",
+      "username": "user",
+      "password": "user123",
+      "age": 13
+    }
+  ];
   static String currentUser = "";
   static String currentUserEmail = "";
   static String currentUserUsername = "";
